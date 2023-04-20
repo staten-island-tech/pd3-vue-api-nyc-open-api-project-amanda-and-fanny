@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-const props = {
+const props = defineProps{
   pokemon: Object,
   id: Number
 }
