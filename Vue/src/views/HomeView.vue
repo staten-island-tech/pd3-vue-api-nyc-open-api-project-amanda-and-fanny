@@ -1,16 +1,19 @@
 <template>
   <div class="container">
-    <AnimalCard v-for="animal in animals" :key="animal.animal_class" :animals="animal" />
+    <h1>Animals that were found in Brooklyn</h1>
+    <CaseCard v-for="animal in animals" :key="animal.animal_class" :animals="animal" />
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import AnimalCard from '../components/AnimalCard.vue'
+import CaseCard from '../components/CaseCard.vue'
 
 const animals = ref('')
 async function getAnimals() {
-  let res = await fetch('https://data.cityofnewyork.us/resource/fuhs-xmg2.json')
+  let res = await fetch(
+    'https://data.cityofnewyork.us/resource/fuhs-xmg2.json?$query=SELECT%0A%20%20%60date_and_time_of_initial%60%2C%0A%20%20%60date_and_time_of_ranger%60%2C%0A%20%20%60borough%60%2C%0A%20%20%60property%60%2C%0A%20%20%60location%60%2C%0A%20%20%60species_description%60%2C%0A%20%20%60call_source%60%2C%0A%20%20%60species_status%60%2C%0A%20%20%60animal_condition%60%2C%0A%20%20%60duration_of_response%60%2C%0A%20%20%60age%60%2C%0A%20%20%60animal_class%60%2C%0A%20%20%60_311sr_number%60%2C%0A%20%20%60final_ranger_action%60%2C%0A%20%20%60of_animals%60%2C%0A%20%20%60pep_response%60%2C%0A%20%20%60animal_monitored%60%2C%0A%20%20%60rehabilitator%60%2C%0A%20%20%60hours_spent_monitoring%60%2C%0A%20%20%60police_response%60%2C%0A%20%20%60esu_response%60%2C%0A%20%20%60acc_intake_number%60%0AWHERE%20%60borough%60%20IN%20(%22Brooklyn%22)'
+  )
   let data = await res.json()
   animals.value = data.results
   console.log(data)

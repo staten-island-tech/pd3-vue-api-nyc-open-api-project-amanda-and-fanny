@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <h2>{{ animals.animal_calss }}</h2>
+    <h2>{{ animals.animal_class }}</h2>
   </div>
 </template>
 
