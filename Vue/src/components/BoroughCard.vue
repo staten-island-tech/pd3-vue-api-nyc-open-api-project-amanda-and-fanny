@@ -1,13 +1,16 @@
 <template>
   <div class="card">
-    <h2>{{ animals.property }}</h2>
+    <h2>{{ borough }}</h2>
   </div>
 </template>
 
-<script setup>
-const props = defineProps({
-  animals: Object
-})
+<script>
+export default {
+  name: 'Bcard',
+  props: {
+    borough: String
+  }
+}
 </script>
 
 <style scoped>

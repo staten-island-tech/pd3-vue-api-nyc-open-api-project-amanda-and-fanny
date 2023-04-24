@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <CaseCard v-for="animal in animals" :key="animal.animal_class" :animals="animal" />
+    <CaseCard v-for="animal in animals" :key="animal.property" :animals="animal" />
   </div>
 </template>
 
