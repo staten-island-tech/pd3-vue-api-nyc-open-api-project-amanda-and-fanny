@@ -9,6 +9,17 @@ export default {
   name: 'Bcard',
   props: {
     borough: String
+  },
+
+  data() {
+    return {
+      selected: '',
+      borough: [
+        {
+          borough: 'Brooklyn'
+        }
+      ]
+    }
   }
 }
 </script>
