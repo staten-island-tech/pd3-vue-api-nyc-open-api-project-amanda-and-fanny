@@ -1,11 +1,44 @@
 <template>
   <div class="container">
-    <BoroughCard v-for="boroughs in boroughs" :key="boroughs.borough" />
+    <card2 v-for="boroughs in boroughs" :key="boroughs.borough" :borough="boroughs.borough" />
   </div>
 </template>
 
-<script setup>
-import BoroughCard from '../components/BoroughCard.vue'
+<script>
+import card2 from '../components/BoroughCard.vue'
+
+export default {
+  name: 'Home',
+  components: {
+    card2
+  },
+
+  data() {
+    return {
+      boroughs: [
+        {
+          borough: 'Brooklyn'
+        },
+
+        {
+          borough: 'Manhattan'
+        },
+
+        {
+          borough: 'Bronx'
+        },
+
+        {
+          borough: 'Queens'
+        },
+
+        {
+          borough: 'Staten Island'
+        }
+      ]
+    }
+  }
+}
 </script>
 
 <style scoped>

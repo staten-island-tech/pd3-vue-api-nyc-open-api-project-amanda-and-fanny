@@ -6,20 +6,9 @@
 
 <script>
 export default {
-  name: 'Bcard',
+  name: 'card2',
   props: {
     borough: String
-  },
-
-  data() {
-    return {
-      selected: '',
-      borough: [
-        {
-          borough: 'Brooklyn'
-        }
-      ]
-    }
   }
 }
 </script>
