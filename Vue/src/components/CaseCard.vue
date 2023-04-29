@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="card">
     <h2>{{ animals.property }}</h2>
   </div>
@@ -13,7 +13,7 @@ const props = defineProps({
 <style scoped>
 .card {
   width: 20%;
-  height: 500px;
+  height: 200px;
   background-color: aliceblue;
   margin: 30px 0;
   display: flex;
@@ -23,3 +23,4 @@ const props = defineProps({
   text-transform: uppercase;
 }
 </style>
+ -->

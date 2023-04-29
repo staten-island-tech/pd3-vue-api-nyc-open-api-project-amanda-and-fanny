@@ -1,6 +1,24 @@
 <template>
-  <div class="container">
-    <card2 v-for="boroughs in boroughs" :key="boroughs.borough" :borough="boroughs.borough" />
+  <div>
+    <div class="header">
+      <img
+        class="logo"
+        src="https://www.nycgovparks.org/pagefiles/146/nyc-parks-urban-park-rangers-logo-372x372__5e4c028f757df.jpg"
+        alt="Urban Park Ranger's Logo"
+      />
+      <div class="title">
+        <h1>Urban Park Rangers Animal Conditions Response</h1>
+        <h3>Properties/Parks for each Borough</h3>
+      </div>
+    </div>
+    <div class="container">
+      <card2
+        v-for="boroughs in boroughs"
+        :key="boroughs.borough"
+        :borough="boroughs.borough"
+        :image="boroughs.image"
+      />
+    </div>
   </div>
 </template>
 
@@ -17,23 +35,28 @@ export default {
     return {
       boroughs: [
         {
-          borough: 'Brooklyn'
+          borough: 'Brooklyn',
+          image: '/images/Brooklyn.png'
         },
 
         {
-          borough: 'Manhattan'
+          borough: 'Manhattan',
+          image: '/images/Manhattan.png'
         },
 
         {
-          borough: 'Bronx'
+          borough: 'Bronx',
+          image: '/images/Bronx.png'
         },
 
         {
-          borough: 'Queens'
+          borough: 'Queens',
+          image: '/images/Queens.png'
         },
 
         {
-          borough: 'Staten Island'
+          borough: 'Staten Island',
+          image: '/images/StatenIsland.png'
         }
       ]
     }
@@ -42,6 +65,12 @@ export default {
 </script>
 
 <style scoped>
+:root {
+  --primary: #006225;
+  --secondary: #231f20;
+  --tertiary: #ffee00;
+  --accent: #f1faf2;
+}
 .container {
   width: 90vw;
   margin: 50px auto;
@@ -52,5 +81,25 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+}
+
+.header {
+  width: 90vw;
+  margin: 50px auto;
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.title {
+  color: var(--secondary);
+  align-content: center;
+  padding: 20px;
+  margin: 3rem;
+}
+
+.logo {
+  width: 300px;
+  height: 300px;
 }
 </style>

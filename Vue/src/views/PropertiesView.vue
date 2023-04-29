@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <div class="container">
       <CaseCard v-for="animal in animals" :key="animal.animal_class" :animals="animal" />
     </div>
@@ -35,4 +35,4 @@
     justify-content: space-around;
   }
   </style>
-  
+   -->
