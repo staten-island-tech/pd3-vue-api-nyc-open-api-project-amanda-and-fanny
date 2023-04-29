@@ -1,18 +1,27 @@
 <template>
-  <div class="card">
+  <router-link :to="bPath" class="card">
     <h2 class="text">{{ borough }}</h2>
     <img class="image" v-bind:src="image" />
-  </div>
+  </router-link>
 </template>
 
-<script>
-export default {
-  name: 'card2',
-  props: {
-    borough: String,
-    image: String
-  }
-}
+<script setup>
+import { computed } from 'vue'
+const props = defineProps({
+  borough: String,
+  image: String
+})
+// export default {
+//   name: 'card2',
+//   props: {
+//     borough: String,
+//     image: String
+//   }
+// }
+
+const bPath = computed(() => {
+  return `/BProperty/${props.borough}`
+})
 </script>
 
 <style scoped>

@@ -15,7 +15,7 @@
       <card2
         v-for="boroughs in boroughs"
         :key="boroughs.borough"
-        :borough="boroughs.borough"
+        :borough="boroughs.name"
         :image="boroughs.image"
       />
     </div>
@@ -35,27 +35,27 @@ export default {
     return {
       boroughs: [
         {
-          borough: 'Brooklyn',
+          name: 'Brooklyn',
           image: '/images/Brooklyn.png'
         },
 
         {
-          borough: 'Manhattan',
+          name: 'Manhattan',
           image: '/images/Manhattan.png'
         },
 
         {
-          borough: 'Bronx',
+          name: 'Bronx',
           image: '/images/Bronx.png'
         },
 
         {
-          borough: 'Queens',
+          name: 'Queens',
           image: '/images/Queens.png'
         },
 
         {
-          borough: 'Staten Island',
+          name: 'Staten Island',
           image: '/images/StatenIsland.png'
         }
       ]
