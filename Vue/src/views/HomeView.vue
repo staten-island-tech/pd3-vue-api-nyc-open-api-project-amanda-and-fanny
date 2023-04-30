@@ -12,54 +12,30 @@
       </div>
     </div>
     <div class="container">
-      <card2
-        v-for="boroughs in boroughs"
-        :key="boroughs.borough"
-        :borough="boroughs.name"
-        :image="boroughs.image"
-      />
+      <BrooklynCard />
+      <ManhattanCard />
+      <BronxCard />
+      <QueensCard />
+      <StatenCard />
     </div>
   </div>
 </template>
 
 <script>
-import card2 from '../components/BoroughCard.vue'
+import BrooklynCard from '../components/BrooklynCard.vue'
+import ManhattanCard from '../components/ManhattanCard.vue'
+import BronxCard from '../components/BronxViewCard.vue'
+import QueensCard from '../components/QueensCard.vue'
+import StatenCard from '../components/StatenCard.vue'
 
 export default {
   name: 'Home',
   components: {
-    card2
-  },
-
-  data() {
-    return {
-      boroughs: [
-        {
-          name: 'Brooklyn',
-          image: '/images/Brooklyn.png'
-        },
-
-        {
-          name: 'Manhattan',
-          image: '/images/Manhattan.png'
-        },
-
-        {
-          name: 'Bronx',
-          image: '/images/Bronx.png'
-        },
-
-        {
-          name: 'Queens',
-          image: '/images/Queens.png'
-        },
-
-        {
-          name: 'Staten Island',
-          image: '/images/StatenIsland.png'
-        }
-      ]
-    }
+    BrooklynCard,
+    ManhattanCard,
+    BronxCard,
+    QueensCard,
+    StatenCard
   }
 }
 </script>
