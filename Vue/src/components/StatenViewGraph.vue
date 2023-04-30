@@ -4,26 +4,34 @@
       <h2>Animals Found in the Staten Island Properties</h2>
       <p>Theres are the types of animals that were found on the properties</p>
     </div>
-    <polarArea v-if="loaded" :data="chartData" :options="chartOptions" />
+
+    <Bar :data="data" :options="options" width="200px" height="400px" />
   </div>
 </template>
 
 <script>
-import { Doughnut } from 'vue-chartjs'
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale
+} from 'chart.js'
 
-ChartJS.register(ArcElement, Tooltip, Legend)
+import { Bar } from 'vue-chartjs'
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 export default {
-  name: 'IslandChart',
+  name: 'Staten Island',
   components: {
-    Doughnut
+    Bar
   },
-
   data() {
     return {
-      loaded: false,
-      chartData: {
+      data: {
         labels: [
           'Birds',
           'Rare, Endangered, Dangerous',
@@ -35,22 +43,38 @@ export default {
           'Non Native Fish (invasive)',
           'Raptors'
         ],
-        datasets: [{ data: [] }]
-      },
-      chartOptions: {
-        responsive: true,
-        maintainAspectRatio: true,
-        backgroundColor: [
-          '#007F5F',
-          '#2B9348',
-          '#55A630',
-          '#80B918',
-          '#AACC00',
-          '#BFD200',
-          '#D4D700',
-          '#DDDF00',
-          '#EEEF20'
+        datasets: [
+          {
+            label: 'Animal Class Types',
+            data: [],
+            backgroundColor: [
+              'rgba(0, 127, 95, 0.2)',
+              'rgba(43, 147, 72, 0.2)',
+              'rgba(85, 166, 48, 0.2)',
+              'rgba(128, 185, 24, 0.2)',
+              'rgba(170, 204, 0, 0.2)',
+              'rgba(191, 210, 0, 0.2)',
+              'rgba(221, 240, 0, 0.2)',
+              'rgba(221, 223, 0, 0.2)',
+              'rgba(238, 239, 32, 0.2)'
+            ],
+            borderColor: [
+              '#007F5F',
+              '#2B9348',
+              '#55A630',
+              '#80B918',
+              '#AACC00',
+              '#BFD200',
+              '#D4D700',
+              '#DDDF00',
+              '#EEEF20'
+            ],
+            borderWidth: 1
+          }
         ]
+      },
+      options: {
+        responsive: true
       }
     }
   },
