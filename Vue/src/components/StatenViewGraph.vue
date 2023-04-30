@@ -5,7 +5,7 @@
       <p>Theres are the types of animals that were found on the properties</p>
     </div>
 
-    <Bar :data="data" :options="options"  />
+    <Bar :data="data" :options="options" width="350px" height="450px" />
   </div>
 </template>
 
@@ -54,7 +54,7 @@ export default {
               'rgba(128, 185, 24, 0.2)',
               'rgba(170, 204, 0, 0.2)',
               'rgba(191, 210, 0, 0.2)',
-              'rgba(221, 240, 0, 0.2)',
+              'rgba(212, 215, 0, 0.2)',
               'rgba(221, 223, 0, 0.2)',
               'rgba(238, 239, 32, 0.2)'
             ],
@@ -78,52 +78,75 @@ export default {
       }
     }
   },
+  methods: {
+    e: function () {
+      // this.data.datasets[0].data.push('o')
+      console.log(1)
+    }
+  },
   async mounted() {
     try {
       const res = await fetch(
-        'https://data.cityofnewyork.us/resource/fuhs-xmg2.json?borough=Brooklyn'
+        'https://data.cityofnewyork.us/resource/fuhs-xmg2.json?borough=Staten Island'
       )
       const animalData = await res.json()
-      console.log(animalData)
 
       const Birds = animalData.filter((animal) => animal.animal_class === 'Birds')
-      this.chartData.datasets[0].data.push(Birds.length)
+      this.data.datasets[0].data
+
+      // this.data.datasets[0].data.push(1)
+      // this.e()
+
+      // console.log(this.data.datasets[0].data, 'l')
 
       const Rare = animalData.filter(
         (animal) => animal.animal_class === 'Rare, Endangered, Dangerous'
       )
-      this.chartData.datasets[0].data.push(Rare.length)
+      this.data.datasets[0].data
 
       const Marine = animalData.filter(
         (animal) => animal.animal_class === 'Marine Mammals-seals only'
       )
-      this.chartData.datasets[0].data.push(Marine.length)
+      this.data.datasets[0].data
 
       const Fish = animalData.filter((animal) => animal.animal_class === 'Fish-Numrerous Quanitiy')
-      this.chartData.datasets[0].data.push(Fish.length)
+      this.data.datasets[0].data
 
       const Terr = animalData.filter(
         (animal) => animal.animal_class === 'Terrstrial Reptile or Amphibian'
       )
-      this.chartData.datasets[0].data.push(Terr.length)
+      this.data.datasets[0].data
 
       const Coyotes = animalData.filter((animal) => animal.animal_class === 'Coyotes')
-      this.chartData.datasets[0].data.push(Coyotes.length)
+      this.data.datasets[0].data
 
       const Small = animalData.filter((animal) => animal.animal_class === 'Small Mammals-non RVS')
-      this.chartData.datasets[0].data.push(Small.length)
+      this.data.datasets[0].data
 
       const invasive = animalData.filter(
         (animal) => animal.animal_class === 'Non Native Fish (invasive)'
       )
-      this.chartData.datasets[0].data.push(invasive.length)
+      this.data.datasets[0].data
 
       const Raptors = animalData.filter((animal) => animal.animal_class === 'Raptors')
-      this.chartData.datasets[0].data.push(Raptors.length)
+      this.data.datasets[0].data
+
+      console.log(
+        this.data.datasets[0].data.length,
+        'o',
+        Birds.length,
+        Rare.length,
+        Marine.length,
+        Fish.length,
+        Terr.length,
+        Coyotes.length,
+        Small.length,
+        invasive.length,
+        Raptors.length
+      )
     } catch (e) {
       console.error(e)
     }
-    console.log(this.chartData)
   }
 }
 </script>

@@ -8,7 +8,7 @@
       />
       <div class="title">
         <h1>Urban Park Rangers Animal Conditions Response</h1>
-        <h3>Properties/Parks for each Borough</h3>
+        <h3>Animal Class for each response for each Borough</h3>
       </div>
     </div>
     <div class="container">
