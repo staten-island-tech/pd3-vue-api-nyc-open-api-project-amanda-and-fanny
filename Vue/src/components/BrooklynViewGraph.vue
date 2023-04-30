@@ -5,7 +5,7 @@
       <p>Theres are the types of animals that were found on the properties</p>
     </div>
 
-    <Bar :data="data" :options="options" width="200px" height="400px" />
+    <Bar :data="data" :options="options" width="350px" height="450px" />
   </div>
 </template>
 
@@ -46,7 +46,7 @@ export default {
         datasets: [
           {
             label: 'Animal Class Types',
-            data: [],
+            data: [1, 2, 3, 4, 5, 6, 7, 8, 9],
             backgroundColor: [
               'rgba(0, 127, 95, 0.2)',
               'rgba(43, 147, 72, 0.2)',

@@ -4,7 +4,7 @@
       <h2>Animals Found in the Bronx Properties</h2>
       <p>Theres are the types of animals that were found on the properties</p>
     </div>
-    <Bar :data="data" :options="options" width="200px" height="400px" />
+    <Bar :data="data" :options="options" />
   </div>
 </template>
 
@@ -83,7 +83,6 @@ export default {
         'https://data.cityofnewyork.us/resource/fuhs-xmg2.json?borough=Brooklyn'
       )
       const animalData = await res.json()
-      console.log(animalData)
 
       const Birds = animalData.filter((animal) => animal.animal_class === 'Birds')
       this.chartData.datasets[0].data.push(Birds.length)
@@ -119,6 +118,8 @@ export default {
 
       const Raptors = animalData.filter((animal) => animal.animal_class === 'Raptors')
       this.chartData.datasets[0].data.push(Raptors.length)
+
+      this.loaded = true
     } catch (e) {
       console.error(e)
     }

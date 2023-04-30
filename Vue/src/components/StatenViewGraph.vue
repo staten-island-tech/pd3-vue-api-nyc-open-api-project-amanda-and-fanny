@@ -5,7 +5,7 @@
       <p>Theres are the types of animals that were found on the properties</p>
     </div>
 
-    <Bar :data="data" :options="options" width="200px" height="400px" />
+    <Bar :data="data" :options="options"  />
   </div>
 </template>
 
