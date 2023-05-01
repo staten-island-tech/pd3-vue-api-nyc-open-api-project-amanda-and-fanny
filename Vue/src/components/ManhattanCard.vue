@@ -27,6 +27,7 @@ export default {
   text-transform: uppercase;
   color: #f1faf2;
   border-radius: 50%;
+  text-decoration: none;
 }
 
 .text {
