@@ -24,6 +24,16 @@ const router = createRouter({
       path: '/island',
       name: 'island',
       component: () => import('../views/StatenViews.vue')
+    },
+    {
+      path: '/manhattan',
+      name: 'manhattan',
+      component: () => import('../views/ManhattanViews.vue')
+    },
+    {
+      path: '/queens',
+      name: 'queens',
+      component: () => import('../views/QueensViews.vue')
     }
   ]
 })
