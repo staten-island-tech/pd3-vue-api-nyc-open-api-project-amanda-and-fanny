@@ -7,30 +7,23 @@
       <Router-link to="/" class="link"><p>Back to Home Page</p></Router-link>
     </div>
 
-    <Bar v-if="loaded" :data="chartData" :options="chartOptions" />
+    <Pie v-if="loaded" :data="chartData" :options="chartOptions" />
   </div>
 </template>
 
 <script>
-import {
-  Chart as ChartJS,
-  Title,
-  Tooltip,
-  Legend,
-  BarElement,
-  CategoryScale,
-  LinearScale
-} from 'chart.js'
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 
-import { Bar } from 'vue-chartjs'
+import { Pie } from 'vue-chartjs'
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
+ChartJS.register( 
+  Tooltip, Legend,
+  ArcElement  
+)
 
 export default {
   name: 'Manhattan',
-  components: {
-    Bar
-  },
+  components: { Pie },
   props: {
     chartOptions: {
       type: Object,
