@@ -1,7 +1,7 @@
 <template>
   <div class="chart">
     <div class="title">
-      <h2>Animals Found in the Bronx Properties</h2>
+      <h2>Animals Found in the Queens Properties</h2>
       <p>Theres are the types of animals that were found on the properties</p>
 
       <Router-link to="/" class="link"><p>Back to Home Page</p></Router-link>
@@ -12,14 +12,22 @@
 </template>
 
 <script>
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale
+} from 'chart.js'
 
-import { Pie } from 'vue-chartjs'
+import { Bar } from 'vue-chartjs'
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 export default {
-  name: 'Bronx',
+  name: 'Queens',
   components: {
     Bar
   },

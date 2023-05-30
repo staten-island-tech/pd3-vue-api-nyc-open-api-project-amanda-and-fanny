@@ -1,13 +1,13 @@
 <template>
   <div class="chart">
     <div class="title">
-      <h2>Animals Found in the Bronx Properties</h2>
+      <h2>Animals Found in the Manhattan Properties</h2>
       <p>Theres are the types of animals that were found on the properties</p>
 
       <Router-link to="/" class="link"><p>Back to Home Page</p></Router-link>
     </div>
 
-    <Bar v-if="loaded" :data="chartData" :options="chartOptions" />
+    <Pie v-if="loaded" :data="chartData" :options="chartOptions" />
   </div>
 </template>
 
@@ -16,13 +16,14 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 
 import { Pie } from 'vue-chartjs'
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
+ChartJS.register( 
+  Tooltip, Legend,
+  ArcElement  
+)
 
 export default {
-  name: 'Bronx',
-  components: {
-    Bar
-  },
+  name: 'Manhattan',
+  components: { Pie },
   props: {
     chartOptions: {
       type: Object,
@@ -89,7 +90,9 @@ export default {
   },
   async mounted() {
     try {
-      const res = await fetch('https://data.cityofnewyork.us/resource/fuhs-xmg2.json?borough=Bronx')
+      const res = await fetch(
+        'https://data.cityofnewyork.us/resource/fuhs-xmg2.json?borough=Manhattan'
+      )
       let data = await res.json()
       const birds = data.filter((animal) => animal.animal_class === 'Birds')
       this.chartData.datasets[0].data.push(birds.length)
